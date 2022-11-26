@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<head><title>Products</title></head>
+<body>
+<div th:replace="fragments :: navbar"></div>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th scope="col" class="text-center">Name</th>
+        <th scope="col" class="text-center">Brand</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.brand.name}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/products/add}">Add a Product</a>
+</body>
+</html>

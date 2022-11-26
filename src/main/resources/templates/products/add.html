@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<head><title>Add Product</title></head>
+<body>
+<div th:replace="fragments :: navbar"></div>
+</div>
+<form method="post">
+    <label class="form-label" for="name"> Product Name: </label>
+    <input class="form-control" type="text" id="name" name="name"/>
+    <label for="brand">Brand:</label>
+    <select class="form-control" name="brand" id="brand">
+        <option value="0" selected>(choose)</option>
+        <option th:each="brand : ${brands}" th:value="${brand.id}" th:text="${brand.name}"></option>
+    </select>
+    <button type="submit" class="btn btn-dark">Add Product</button>
+</form>
+</body>
+</html>
