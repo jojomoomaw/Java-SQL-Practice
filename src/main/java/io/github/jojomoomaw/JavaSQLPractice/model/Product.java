@@ -22,10 +22,16 @@ public class Product{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brand_id")
     private Brand brand;
+
+    @NotNull
+    @Column(name = "active")
+    public boolean active;
+
     public Product(){}
-    public Product(String name, Brand brand) {
+    public Product(String name, Brand brand, boolean active) {
         this.name = name;
         this.brand = brand;
+        this.active = active;
     }
 
     public Integer getId() {
@@ -46,6 +52,14 @@ public class Product{
 
     public void setBrand(Brand brand) {
         this.brand = brand;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     @Override

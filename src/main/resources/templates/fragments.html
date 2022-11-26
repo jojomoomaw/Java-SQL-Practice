@@ -11,6 +11,17 @@
     <a th:href="@{/distributors}">Distributors</a>
 </nav>
 
+<table th:fragment="product-table" role="table">
+    <tr>
+        <th>Name</th>
+        <th>Brand</th>
+    </tr>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.brand.name}"></td>
+    </tr>
+</table>
+
 
 </body>
 </html>

@@ -13,6 +13,7 @@
         <option value="0" selected>(choose)</option>
         <option th:each="brand : ${brands}" th:value="${brand.id}" th:text="${brand.name}"></option>
     </select>
+    <input type="checkbox" name="active" id="active">Active?</input>
     <button type="submit" class="btn btn-dark">Add Product</button>
 </form>
 </body>

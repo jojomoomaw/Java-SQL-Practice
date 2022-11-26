@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/distributors")
@@ -38,9 +39,17 @@ public class DistributorController {
     @PostMapping("/add")
     public String processDistributorForm(@ModelAttribute @Valid Distributor newDistributor) {
 
-        distributorRepository.save(newDistributor);
+        for(Distributor distributor : distributorRepository.findAll()){
+            if(distributor.getName().equals(newDistributor.getName())){
+                //this is my dumb error handling that just ignores you if you re-entera distributor name
+                return "redirect:";
+            } else if (newDistributor.getName().isEmpty()) {
+                return "distributors/add";
+            }
 
+            distributorRepository.save(newDistributor);
+
+        }
         return "redirect:";
-
     }
 }
