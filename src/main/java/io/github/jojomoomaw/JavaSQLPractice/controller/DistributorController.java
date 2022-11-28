@@ -41,7 +41,7 @@ public class DistributorController {
 
         for(Distributor distributor : distributorRepository.findAll()){
             if(distributor.getName().equals(newDistributor.getName())){
-                //this is my dumb error handling that just ignores you if you re-entera distributor name
+                //this is my dumb error handling that just ignores you if you re-enter a distributor name
                 return "redirect:";
             } else if (newDistributor.getName().isEmpty()) {
                 return "distributors/add";
